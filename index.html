@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fingerless Coder | Developer</title>
+  <meta name="description"
+    content="Portfolio of Fingerless Coder - Software Developer specializing in modern web applications, performance, and accessibility" />
+  <meta name="keywords" content="web developer, frontend, backend, accessibility, performance" />
+  <meta name="author" content="FingerlessCoder" />
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+
+<body class="min-h-dvh flex flex-col selection:bg-accent-200/60">
+  <a class="absolute left-[-999px] focus:left-4 focus:top-4 focus:bg-accent-600 focus:text-white focus:px-4 focus:py-2 rounded-md"
+    href="#main">Skip to content</a>
+  <header class="sticky top-0 z-40 backdrop-blur bg-brand-900/90 border-b border-brand-800" role="banner">
+    <nav class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16" aria-label="Main navigation">
+      <div class="text-lg font-semibold tracking-tight">
+        <a href="index.html"
+          class="bg-gradient-to-r from-off-white to-accent-300 bg-clip-text text-transparent hover:from-accent-300 hover:to-accent-500 transition-all">
+          Fingerless Coder </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul id="menu" class="hidden md:flex gap-1 items-center">
+        <li><a href="index.html" class="nav-link-active nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger Button -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle mobile menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Curtain Menu Backdrop -->
+    <div id="menu-backdrop" class="fixed inset-0 bg-black/[0.95] backdrop-blur-sm z-40 hidden md:hidden"
+      aria-hidden="true"></div>
+
+    <!-- Curtain Menu -->
+    <div id="mobile-menu"
+      class="fixed top-0 left-0 h-0 w-full bg-black/[0.98] overflow-hidden transition-all duration-500 ease-in-out z-50 md:hidden">
+      <div class="flex flex-col h-screen">
+        <!-- Close Button -->
+        <div class="flex justify-end p-4">
+          <button id="close-menu-btn" class="text-white hover:text-accent-300 transition-colors"
+            aria-label="Close menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="flex flex-col items-center justify-center space-y-6 px-6 py-8 flex-1">
+          <a href="index.html"
+            class="block py-4 px-8 text-xl text-white hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs"
+            onclick="closeMenu()">Home</a>
+          <a href="about.html"
+            class="block py-4 px-8 text-xl text-gray-200 hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs"
+            onclick="closeMenu()">About</a>
+          <a href="projects.html"
+            class="block py-4 px-8 text-xl text-gray-200 hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs"
+            onclick="closeMenu()">Projects</a>
+          <a href="contact.html"
+            class="block py-4 px-8 text-xl text-gray-200 hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs"
+            onclick="closeMenu()">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="flex-1">
+    <section class="relative overflow-hidden min-h-[85vh] flex items-center">
+      <!-- Dynamic black-themed animated background -->
+      <div class="absolute inset-0" style="background: var(--gradient-hero);"></div>
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-20 left-20 w-72 h-72 rounded-full mix-blend-screen filter blur-xl animate-blob"
+          style="background: var(--accent-primary);"></div>
+        <div
+          class="absolute top-40 right-20 w-72 h-72 rounded-full mix-blend-screen filter blur-xl animate-blob animation-delay-2000"
+          style="background: var(--accent-secondary);"></div>
+        <div
+          class="absolute -bottom-8 left-40 w-72 h-72 rounded-full mix-blend-screen filter blur-xl animate-blob animation-delay-4000"
+          style="background: var(--accent-tertiary);"></div>
+      </div>
+
+      <!-- Floating particles -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="particle absolute w-2 h-2 rounded-full animate-float"
+          style="top: 20%; left: 10%; background: var(--accent-primary); animation-delay: 0s;"></div>
+        <div class="particle absolute w-1 h-1 rounded-full animate-float"
+          style="top: 60%; left: 80%; background: var(--accent-secondary); animation-delay: 2s;"></div>
+        <div class="particle absolute w-3 h-3 rounded-full animate-float"
+          style="top: 80%; left: 20%; background: var(--accent-tertiary); animation-delay: 4s;"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex flex-col gap-8">
+        <!-- Enhanced title with dynamic color gradient -->
+        <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl">
+          <span id="typed-text">Crafting Digital Experiences That Matter</span>
+          <span class="inline-block w-0.5 h-8 sm:h-10 md:h-12 animate-pulse ml-1"
+            style="background: var(--accent-primary);"></span>
+        </h1>
+        <p class="max-w-prose text-lg sm:text-xl text-brand-200 leading-relaxed animate-fade-in-up animation-delay-500">
+          Full-stack developer passionate about creating meaningful web applications. From interactive music platforms
+          to comprehensive tourism portals, I transform ideas into scalable, user-centric solutions using modern
+          technologies and thoughtful design.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up animation-delay-1000">
+          <a class="btn btn-primary group" href="projects.html">
+            Explore My Work
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a class="btn" href="about.html">Learn My Story</a>
+          <a class="btn btn-outline" href="contact.html">
+            Let's Connect
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section py-16 sm:py-20 lg:py-24" aria-labelledby="recent-projects-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+          <h2 id="recent-projects-title" class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-off-white">
+            Selected Projects</h2>
+          <p class="text-lg text-brand-200 max-w-3xl">Explore my featured work showcasing full-stack applications,
+            interactive experiences, and creative solutions.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <article class="card group" data-category="web">
+            <div class="relative mb-4 overflow-hidden rounded-lg bg-gradient-to-br from-brand-800 to-brand-900 p-1">
+              <img src="assets/img/content_music-album.png" alt="Music Recommendation Site"
+                class="w-full h-48 object-cover rounded-md transition-transform duration-300 group-hover:scale-105 lazy"
+                loading="lazy">
+
+            </div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="flex-1 flex items-center flex-wrap">
+                <span class="text-brand-100 font-semibold text-lg">Music Recommendation Site</span>
+                <span
+                  class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent-500/20 text-accent-300 border border-accent-400/30 ml-2 animate-pulse">
+                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  Featured
+                </span>
+              </h3>
+
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Full-stack web application with user authentication,
+              Spotify API integration, and social features. Features include album browsing, user favorites, comment
+              systems, admin dashboard, and automated data fetching via Python scripts.</p>
+            <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">PHP</span><span class="tag">MySQL</span><span
+                class="tag">Spotify API</span><span class="tag">Python</span><span class="tag">JavaScript</span></div>
+          </article>
+          <article class="card group" data-category="web">
+            <div class="relative mb-4 overflow-hidden rounded-lg bg-gradient-to-br from-brand-800 to-brand-900 p-1">
+              <img src="assets/img/content_visit2malaysia.png" alt="Visit2Malaysia Tourism Portal"
+                class="w-full h-48 object-cover rounded-md transition-transform duration-300 group-hover:scale-105 lazy"
+                loading="lazy">
+
+            </div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="flex-1 flex items-center flex-wrap">
+                <span class="text-brand-100 font-semibold text-lg">Visit2Malaysia Tourism Portal</span>
+                <span
+                  class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent-500/20 text-accent-300 border border-accent-400/30 ml-2 animate-pulse">
+                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  Featured
+                </span>
+              </h3>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Comprehensive tourism website promoting Malaysian
+              destinations. Built with modern web technologies and includes detailed documentation and project reports
+              demonstrating full development lifecycle.</p>
+            <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">PHP</span><span class="tag">HTML5</span><span
+                class="tag">CSS3</span><span class="tag">Tourism</span><span class="tag">Responsive Design</span></div>
+          </article>
+          <article class="card group" data-category="web">
+            <div class="relative mb-4 overflow-hidden rounded-lg bg-gradient-to-br from-brand-800 to-brand-900 p-1">
+              <img src="assets/img/content_windrider.png" alt="WIND-RIDER ADVERTISING"
+                class="w-full h-48 object-cover rounded-md transition-transform duration-300 group-hover:scale-105 lazy"
+                loading="lazy">
+
+            </div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="flex-1 flex items-center flex-wrap">
+                <span class="text-brand-100 font-semibold text-lg">WIND-RIDER
+                  ADVERTISING</span>
+                <span
+                  class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent-500/20 text-accent-300 border border-accent-400/30 ml-2 animate-pulse">
+                  <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  Featured
+                </span>
+              </h3>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">Modern, responsive portfolio featuring dynamic color
+              themes, animated gradients, and glassmorphism effects. Built with Tailwind CSS and vanilla JavaScript for
+              optimal performance and aesthetic appeal.</p>
+            <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">PHP</span><span class="tag">Tailwind
+                CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span><span
+                class="tag">Animations</span></div>
+          </article>
+        </div>
+        <div class="mt-10 flex justify-center">
+          <a class="btn btn-primary group" href="projects.html">
+            See All Projects
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="section-alt section" aria-labelledby="skills-title">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 id="skills-title" class="text-2xl font-semibold tracking-tight mb-8 text-off-white text-center">Technical
+          Expertise</h2>
+
+        <!-- Programming Languages -->
+        <div class="mb-8">
+          <h3 class="text-lg font-medium text-accent-300 mb-4 flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            Programming Languages
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            <div class="skill-item group">
+              <span class="skill-level skill-expert">Java</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-expert-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-advanced">PHP</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-advanced-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-advanced">JavaScript</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-advanced-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-intermediate">Python</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-intermediate-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-intermediate">C#</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-intermediate-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-intermediate">C++</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-intermediate-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-beginner">Rust</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-beginner-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-intermediate">C</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-intermediate-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Technologies -->
+        <div class="mb-8">
+          <h3 class="text-lg font-medium text-accent-300 mb-4 flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            Web Technologies
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            <div class="skill-item group">
+              <span class="skill-level skill-expert">HTML5</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-expert-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-expert">CSS3</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-expert-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-advanced">Tailwind CSS</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-advanced-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-intermediate">Bootstrap</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-intermediate-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases & Tools -->
+        <div class="mb-8">
+          <h3 class="text-lg font-medium text-accent-300 mb-4 flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 10h8v-2H8v2z" />
+            </svg>
+            Databases & Tools
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            <div class="skill-item group">
+              <span class="skill-level skill-advanced">MySQL</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-advanced-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-advanced">Git</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-advanced-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-intermediate">XAMPP</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-intermediate-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-intermediate">Spotify API</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-intermediate-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specializations -->
+        <div>
+          <h3 class="text-lg font-medium text-accent-300 mb-4 flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            Specializations
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            <div class="skill-item group">
+              <span class="skill-level skill-expert">Full-Stack Development</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-expert-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-advanced">Responsive Design</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-advanced-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-advanced">Game Development</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-advanced-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item group">
+              <span class="skill-level skill-intermediate">AI Integration</span>
+              <div class="skill-bar">
+                <div class="skill-fill skill-intermediate-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- scroll-to-top functionality removed -->
+
+  <footer class="relative mt-20 overflow-hidden">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-900/95 to-transparent"></div>
+
+    <!-- Subtle pattern overlay -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12 mb-8">
+        <!-- Brand Section -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-bold bg-gradient-to-r from-accent-300 to-accent-500 bg-clip-text text-transparent">
+            Fingerless Coder </h3>
+          <p class="text-brand-300 text-sm leading-relaxed max-w-xs">
+            Portfolio of Fingerless Coder - Software Developer specializing in modern web applications, performance, and accessibility </p>
+          <ul class="flex flex-wrap items-center gap-3">
+            <li class="inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-brand-800 hover:bg-accent-600 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg border border-brand-700/40 md:w-36"
+              title="GitHub" aria-label="GitHub">
+              <a href="https://github.com/FingerlessCoder" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.766 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span class="text-sm font-medium truncate">GitHub</span>
+              </a>
+            </li>
+            <li class="inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-brand-800 hover:bg-accent-600 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg border border-brand-700/40 md:w-36"
+              title="LinkedIn" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/wilson-tay-225019301/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76c.97 0 1.75.79 1.75 1.76s-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.37-1.54 2.82-1.54 3.01 0 3.57 1.98 3.57 4.56v5.62z"/>
+                </svg>
+                <span class="text-sm font-medium truncate">LinkedIn</span>
+              </a>
+            </li>
+            <li class="inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-brand-800 hover:bg-accent-600 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg border border-brand-700/40 md:w-36"
+              title="Email" aria-label="Email">
+              <a href="mailto:wilsontay55@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/>
+                </svg>
+                <span class="text-sm font-medium truncate">Email</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-semibold text-off-white">Quick Links</h4>
+          <nav class="space-y-2">
+            <a href="index.html" class="block text-brand-300 hover:text-accent-400 transition-colors text-sm">Home</a>
+            <a href="about.html" class="block text-brand-300 hover:text-accent-400 transition-colors text-sm">About</a>
+            <a href="projects.html" class="block text-brand-300 hover:text-accent-400 transition-colors text-sm">Projects</a>
+            <a href="contact.html" class="block text-brand-300 hover:text-accent-400 transition-colors text-sm">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-semibold text-off-white">Get in Touch</h4>
+          <div class="space-y-2 text-sm text-brand-300">
+            <p>Ready to collaborate on your next project?</p>
+            <a href="contact.html" class="inline-flex items-center gap-2 text-accent-400 hover:text-accent-300 transition-colors font-medium">
+              Start a conversation
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-brand-800/50">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-sm text-brand-400">© <span id="year"></span> FingerlessCoder. Crafted with ❤️ and modern web technologies.</p>
+          <div class="flex items-center gap-4 text-xs text-brand-500"><span>Built with HTML & Tailwind CSS</span><span class="hidden sm:block">•</span><span>Responsive & Accessible</span></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
+
+

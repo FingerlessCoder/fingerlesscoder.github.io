@@ -1,0 +1,17 @@
+# Node / tooling (if added later)
+node_modules/
+.DS_Store
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts (if you add a build process)
+dist/
+.build/
+.cache/
+
+# VS Code
+.vscode/

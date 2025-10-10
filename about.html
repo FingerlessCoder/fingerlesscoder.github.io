@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Fingerless Coder</title>
+  <meta name="description" content="About FingerlessCoder - background, experience, and values" />
+  <meta name="keywords" content="web developer, frontend, backend, accessibility, performance" />
+  <meta name="author" content="FingerlessCoder" />
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+
+<body class="min-h-dvh flex flex-col selection:bg-accent-200/60">
+  <a class="absolute left-[-999px] focus:left-4 focus:top-4 focus:bg-accent-600 focus:text-white focus:px-4 focus:py-2 rounded-md"
+    href="#main">Skip to content</a>
+  <header class="sticky top-0 z-40 backdrop-blur bg-brand-900/90 border-b border-brand-800" role="banner">
+    <nav class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16" aria-label="Main navigation">
+      <div class="text-lg font-semibold tracking-tight">
+        <a href="index.html"
+          class="bg-gradient-to-r from-off-white to-accent-300 bg-clip-text text-transparent hover:from-accent-300 hover:to-accent-500 transition-all">
+          Fingerless Coder </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul id="menu" class="hidden md:flex gap-1 items-center">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link-active nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger Button -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle mobile menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Curtain Menu Backdrop -->
+    <div id="menu-backdrop" class="fixed inset-0 bg-black/[0.95] backdrop-blur-sm z-40 hidden md:hidden" aria-hidden="true"></div>
+
+    <!-- Curtain Menu -->
+    <div id="mobile-menu" class="fixed top-0 left-0 h-0 w-full bg-black/[0.98] overflow-hidden transition-all duration-500 ease-in-out z-50 md:hidden">
+      <div class="flex flex-col h-screen">
+        <!-- Close Button -->
+        <div class="flex justify-end p-4">
+          <button id="close-menu-btn" class="text-white hover:text-accent-300 transition-colors" aria-label="Close menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="flex flex-col items-center justify-center space-y-6 px-6 py-8 flex-1">
+          <a href="index.html" class="block py-4 px-8 text-xl text-gray-200 hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs" onclick="closeMenu()">Home</a>
+          <a href="about.html" class="block py-4 px-8 text-xl text-white hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs" onclick="closeMenu()">About</a>
+          <a href="projects.html" class="block py-4 px-8 text-xl text-gray-200 hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs" onclick="closeMenu()">Projects</a>
+          <a href="contact.html" class="block py-4 px-8 text-xl text-gray-200 hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs" onclick="closeMenu()">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="flex-1">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 inset">
+        <img src="assets/img/profile.png" alt="Profile"
+          class="w-36 h-36 md:w-40 md:h-40 rounded-full shadow-2xl border-4 border-accent-400 object-cover flex-shrink-0 animate-scale-in" />
+        <div
+          class="bg-brand-900/90 dark:bg-brand-800/90 rounded-2xl p-6 md:p-8 shadow-2xl border border-brand-800 backdrop-blur-sm flex-1 w-full">
+          <h1
+            class="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-accent-300 to-accent-500 bg-clip-text text-transparent">
+            About Me</h1>
+          <p class="text-lg md:text-xl text-slate-200 mb-4 leading-relaxed">Full-stack developer passionate about
+            creating meaningful digital experiences that solve real-world problems and delight users.</p>
+          <p class="text-base md:text-lg text-slate-300 leading-relaxed">With expertise in modern web technologies and
+            a keen eye for design, I transform complex ideas into elegant, scalable solutions.</p>
+        </div>
+      </div>
+
+      <section class="space-y-16">
+        <div class="card">
+          <h2 class="text-3xl font-bold text-accent-200 mb-4">Background</h2>
+          <p class="text-slate-200 mb-4 leading-relaxed text-lg">As a dedicated developer, I've built a diverse
+            portfolio ranging from comprehensive web applications to interactive gaming experiences. My journey
+            includes creating a full-stack music discovery platform with Spotify API integration, developing tourism
+            websites with responsive design, and crafting engaging web-based games. I believe in learning through
+            building real projects that solve actual problems.</p>
+        </div>
+
+        <div class="card">
+          <h2 class="text-3xl font-bold text-accent-200 mb-4">What I Do</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h3 class="text-xl font-semibold text-accent-300">Frontend Development</h3>
+              <p class="text-slate-300">Creating responsive, accessible user interfaces with modern frameworks like
+                React and Vue.js, combined with CSS frameworks like Tailwind CSS for pixel-perfect designs.</p>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-xl font-semibold text-accent-300">Backend Development</h3>
+              <p class="text-slate-300">Building robust server-side applications with PHP, Node.js, and databases like
+                MySQL and MongoDB, ensuring scalability and security.</p>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-xl font-semibold text-accent-300">API Integration</h3>
+              <p class="text-slate-300">Connecting applications with third-party services like Spotify API, payment
+                gateways, and social media platforms for enhanced functionality.</p>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-xl font-semibold text-accent-300">Performance Optimization</h3>
+              <p class="text-slate-300">Implementing best practices for fast loading times, SEO optimization, and
+                cross-browser compatibility.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="text-3xl font-bold text-accent-200 mb-4">Key Achievements</h2>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-3 h-3 rounded-full bg-accent-400 mt-2 flex-shrink-0"></div>
+              <div>
+                <h4 class="text-lg font-semibold text-slate-200">Full-Stack Music Platform</h4>
+                <p class="text-slate-300">Developed a comprehensive music discovery platform with user authentication,
+                  Spotify API integration, and social features. Served as both a technical showcase and a real-world
+                  application.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-3 h-3 rounded-full bg-accent-400 mt-2 flex-shrink-0"></div>
+              <div>
+                <h4 class="text-lg font-semibold text-slate-200">Tourism Portal</h4>
+                <p class="text-slate-300">Created a feature-rich tourism website promoting Malaysia with responsive
+                  design, comprehensive documentation, and full development lifecycle management.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-3 h-3 rounded-full bg-accent-400 mt-2 flex-shrink-0"></div>
+              <div>
+                <h4 class="text-lg font-semibold text-slate-200">Modern Portfolio Website</h4>
+                <p class="text-slate-300">Built this responsive portfolio using Tailwind CSS with glassmorphism
+                  effects, dynamic themes, and optimized performance for an exceptional user experience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="text-3xl font-bold text-accent-200 mb-4">Technologies & Tools</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mt-6">
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Java</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">C</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">C++</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">C#</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">PHP</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">JavaScript</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Python</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Rust</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">MySQL</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">HTML5</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">CSS3</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Bootstrap</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Tailwind CSS</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Spotify API</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Game Development</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Responsive Design</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">XAMPP</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">Git</div>
+            <div class="chip bg-brand-800 text-accent-200 shadow hover:shadow-lg">AI</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="text-3xl font-bold text-accent-200 mb-4">Beyond Code</h2>
+          <p class="text-slate-200 mb-4 leading-relaxed text-lg">When I'm not coding, you'll find me exploring history
+            and philosophy, which fuel my creative problem-solving approach. I believe that diverse perspectives lead
+            to better solutions, and I bring this mindset to every project I work on.</p>
+          <p class="text-slate-200 mb-4 leading-relaxed text-lg">I'm always excited to take on new challenges and
+            collaborate with like-minded individuals who share a passion for creating meaningful digital experiences.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2 class="text-3xl font-bold text-accent-200 mb-4">Let's Work Together</h2>
+          <p class="text-slate-200 mb-6 leading-relaxed text-lg">I'm currently available for freelance projects,
+            full-time opportunities, and collaborations. Whether you need a complete web application, API integration,
+            or just want to discuss your next big idea, I'd love to hear from you.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="projects.html" class="btn btn-primary">View My Work</a>
+            <a href="contact.html" class="btn">Get In Touch</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+<!-- scroll-to-top functionality removed -->
+
+  <footer class="relative mt-20 overflow-hidden">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-900/95 to-transparent"></div>
+
+    <!-- Subtle pattern overlay -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12 mb-8">
+        <!-- Brand Section -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-bold bg-gradient-to-r from-accent-300 to-accent-500 bg-clip-text text-transparent">
+            Fingerless Coder </h3>
+          <p class="text-brand-300 text-sm leading-relaxed max-w-xs">
+            Portfolio of Fingerless Coder - Software Developer specializing in modern web applications, performance, and accessibility </p>
+          <ul class="flex flex-wrap items-center gap-3">
+            <li class="inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-brand-800 hover:bg-accent-600 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg border border-brand-700/40 md:w-36"
+              title="GitHub" aria-label="GitHub">
+              <a href="https://github.com/FingerlessCoder" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.766 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span class="text-sm font-medium truncate">GitHub</span>
+              </a>
+            </li>
+            <li class="inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-brand-800 hover:bg-accent-600 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg border border-brand-700/40 md:w-36"
+              title="LinkedIn" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/wilson-tay-225019301/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76c.97 0 1.75.79 1.75 1.76s-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.37-1.54 2.82-1.54 3.01 0 3.57 1.98 3.57 4.56v5.62z"/>
+                </svg>
+                <span class="text-sm font-medium truncate">LinkedIn</span>
+              </a>
+            </li>
+            <li class="inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full bg-brand-800 hover:bg-accent-600 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg border border-brand-700/40 md:w-36"
+              title="Email" aria-label="Email">
+              <a href="mailto:wilsontay55@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/>
+                </svg>
+                <span class="text-sm font-medium truncate">Email</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-semibold text-off-white">Quick Links</h4>
+          <nav class="space-y-2">
+            <a href="index.html" class="block text-brand-300 hover:text-accent-400 transition-colors text-sm">Home</a>
+            <a href="about.html" class="block text-brand-300 hover:text-accent-400 transition-colors text-sm">About</a>
+            <a href="projects.html" class="block text-brand-300 hover:text-accent-400 transition-colors text-sm">Projects</a>
+            <a href="contact.html" class="block text-brand-300 hover:text-accent-400 transition-colors text-sm">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-semibold text-off-white">Get in Touch</h4>
+          <div class="space-y-2 text-sm text-brand-300">
+            <p>Ready to collaborate on your next project?</p>
+            <a href="contact.html" class="inline-flex items-center gap-2 text-accent-400 hover:text-accent-300 transition-colors font-medium">
+              Start a conversation
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-brand-800/50">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-sm text-brand-400">© <span id="year"></span> FingerlessCoder. Crafted with ❤️ and modern web technologies.</p>
+          <div class="flex items-center gap-4 text-xs text-brand-500"><span>Built with HTML & Tailwind CSS</span><span class="hidden sm:block">•</span><span>Responsive & Accessible</span></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
+
+

@@ -1,0 +1,436 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Layer: custom design tokens */
+@layer base {
+  :root {
+    --dynamic-hue: 280;
+    --dynamic-saturation: 70%;
+    --dynamic-lightness: 60%;
+
+    /* Dynamic color variables */
+    --accent-primary: hsl(var(--dynamic-hue), var(--dynamic-saturation), var(--dynamic-lightness));
+    --accent-secondary: hsl(calc(var(--dynamic-hue) + 30), var(--dynamic-saturation), var(--dynamic-lightness));
+    --accent-tertiary: hsl(calc(var(--dynamic-hue) + 60), var(--dynamic-saturation), var(--dynamic-lightness));
+
+    /* Gradient backgrounds */
+    --gradient-primary: linear-gradient(135deg,
+      hsl(var(--dynamic-hue), var(--dynamic-saturation), var(--dynamic-lightness)) 0%,
+      hsl(calc(var(--dynamic-hue) + 60), var(--dynamic-saturation), calc(var(--dynamic-lightness) - 20%)) 100%);
+    --gradient-hero: linear-gradient(135deg,
+      hsl(var(--dynamic-hue), 40%, 15%) 0%,
+      hsl(calc(var(--dynamic-hue) + 120), 30%, 8%) 50%,
+      hsl(calc(var(--dynamic-hue) + 240), 50%, 12%) 100%);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    @apply font-sans antialiased bg-true-black text-off-white;
+    background: var(--gradient-hero);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease-in-out infinite;
+    min-height: 100vh;
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  a {
+    color: var(--accent-primary);
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: var(--accent-secondary);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium
+    bg-brand-800 text-off-white border border-brand-700
+    hover:bg-brand-700 hover:text-true-white hover:border-brand-600
+    transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl;
+    box-shadow: 0 4px 14px 0 hsla(var(--dynamic-hue), 60%, 50%, 0.2);
+  }
+  .btn:hover {
+    box-shadow: 0 6px 20px 0 hsla(var(--dynamic-hue), 70%, 60%, 0.4);
+  }
+  .btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    border: 1px solid var(--accent-primary);
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px 0 hsla(var(--dynamic-hue), 80%, 60%, 0.6);
+  }
+  .card {
+    @apply rounded-xl border border-brand-800 bg-brand-900/95 backdrop-blur-sm
+    text-off-white shadow-2xl
+    transition-all duration-300 p-6 flex flex-col gap-4
+    hover:-translate-y-2 hover:scale-[1.02] hover:border-brand-600;
+    box-shadow: 0 10px 30px 0 hsla(var(--dynamic-hue), 50%, 30%, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(var(--dynamic-hue), 80%, 60%, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  .card:hover::before {
+    left: 100%;
+  }
+  .card:hover {
+    box-shadow: 0 20px 50px 0 hsla(var(--dynamic-hue), 60%, 40%, 0.5),
+                0 0 0 1px hsla(var(--dynamic-hue), 70%, 50%, 0.3);
+    border-color: hsla(var(--dynamic-hue), 70%, 50%, 0.5);
+  }
+  .card h3 {
+    @apply text-xl font-semibold mb-2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .card h3 a {
+    transition: all 0.3s ease;
+  }
+  .card h3 a:hover {
+    color: var(--accent-primary);
+    text-decoration: none;
+  }
+  .card p {
+    @apply text-base leading-relaxed;
+    flex: 1;
+  }
+  .section { @apply py-16; }
+  .section-alt { @apply bg-brand-900/30; }
+  .chip {
+    @apply inline-flex items-center rounded-full
+    bg-brand-800 text-brand-200 border border-brand-700
+    text-xs font-medium px-3 py-1.5
+    hover:bg-brand-700 hover:text-off-white hover:border-brand-600
+    transition-all duration-200;
+    background: linear-gradient(135deg,
+      hsla(var(--dynamic-hue), 30%, 15%, 0.8),
+      hsla(calc(var(--dynamic-hue) + 60), 25%, 20%, 0.6));
+    box-shadow: 0 2px 4px 0 hsla(var(--dynamic-hue), 40%, 20%, 0.3);
+  }
+  .chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px 0 hsla(var(--dynamic-hue), 50%, 30%, 0.4);
+  }
+  .tag {
+    @apply inline-flex items-center rounded-full
+    bg-brand-800/80 text-brand-100 border border-brand-700/50
+    text-xs font-medium px-3 py-1.5
+    transition-all duration-200;
+    background: linear-gradient(135deg,
+      hsla(var(--dynamic-hue), 35%, 18%, 0.7),
+      hsla(calc(var(--dynamic-hue) + 40), 30%, 22%, 0.6));
+  }
+  .tag:hover {
+    background: linear-gradient(135deg,
+      hsla(var(--dynamic-hue), 45%, 25%, 0.85),
+      hsla(calc(var(--dynamic-hue) + 40), 35%, 28%, 0.75));
+    border-color: hsla(var(--dynamic-hue), 60%, 45%, 0.5);
+    transform: scale(1.05);
+  }
+  .nav-link {
+    @apply px-3 py-2 rounded-md text-sm font-medium
+    text-brand-300 hover:text-off-white hover:bg-brand-800
+    transition-all duration-200;
+  }
+  .nav-link:hover {
+    background: hsla(var(--dynamic-hue), 40%, 20%, 0.3);
+    color: var(--accent-primary);
+  }
+  .nav-link-active {
+    color: var(--accent-primary);
+    background: hsla(var(--dynamic-hue), 40%, 15%, 0.4);
+    border: 1px solid hsla(var(--dynamic-hue), 50%, 40%, 0.3);
+  }
+
+  /* Filter buttons */
+  .filter-btn {
+    @apply px-4 py-2 rounded-lg font-medium text-sm
+    transition-all duration-200
+    border shadow-sm;
+    position: relative;
+    overflow: hidden;
+  }
+  .filter-btn:not(.bg-brand-600) {
+    @apply bg-slate-100 hover:bg-slate-200
+    dark:bg-slate-700 dark:hover:bg-slate-600
+    text-slate-700 dark:text-slate-300
+    border-slate-300 hover:border-slate-400
+    dark:border-slate-600 dark:hover:border-slate-500;
+  }
+  .filter-btn.bg-brand-600 {
+    @apply hover:bg-brand-700 text-white
+    border-brand-600 hover:border-brand-700;
+    background: linear-gradient(135deg,
+      hsla(var(--dynamic-hue), 60%, 45%, 1),
+      hsla(calc(var(--dynamic-hue) + 40), 55%, 50%, 1));
+    box-shadow: 0 4px 12px 0 hsla(var(--dynamic-hue), 60%, 45%, 0.4);
+  }
+  .filter-btn.bg-brand-600:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px 0 hsla(var(--dynamic-hue), 65%, 50%, 0.5);
+  }
+  .filter-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Project grid container */
+  #allProjects {
+    transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+  }
+  .hero-title {
+    @apply text-4xl sm:text-5xl font-bold tracking-tight;
+    background: linear-gradient(135deg,
+      var(--accent-primary) 0%,
+      var(--accent-secondary) 50%,
+      var(--accent-tertiary) 100%);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-shift 6s ease-in-out infinite;
+  }
+
+  /* Dynamic project cards */
+  .project-card {
+    @apply group relative overflow-hidden rounded-2xl
+    bg-gradient-to-br from-brand-900 to-off-black
+    backdrop-blur-xl border border-brand-800
+    shadow-2xl
+    transition-all duration-500 hover:-translate-y-2 hover:border-brand-700;
+    box-shadow: 0 15px 35px 0 hsla(var(--dynamic-hue), 50%, 30%, 0.2);
+  }
+  .project-card:hover {
+    box-shadow: 0 25px 50px 0 hsla(var(--dynamic-hue), 60%, 40%, 0.4);
+    border-color: var(--accent-primary);
+  }
+  .project-card::before {
+    @apply absolute inset-0
+    opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+    content: '';
+    background: linear-gradient(135deg,
+      hsla(var(--dynamic-hue), 70%, 50%, 0.1) 0%,
+      hsla(calc(var(--dynamic-hue) + 120), 60%, 40%, 0.05) 100%);
+  }
+
+  /* Dynamic skill badges */
+  .skill-badge {
+    @apply relative overflow-hidden rounded-full
+    text-brand-200 border border-brand-700
+    text-sm font-medium px-4 py-2
+    hover:text-off-white hover:border-brand-600
+    transition-all duration-300 hover:scale-105;
+    background: linear-gradient(135deg,
+      hsla(var(--dynamic-hue), 40%, 15%, 0.6),
+      hsla(calc(var(--dynamic-hue) + 60), 35%, 20%, 0.4));
+  }
+  .skill-badge:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 20px 0 hsla(var(--dynamic-hue), 70%, 50%, 0.4);
+  }
+
+  /* Skill bars */
+  .skill-item {
+    @apply flex flex-col gap-2 p-3 rounded-lg bg-brand-900/50 border border-brand-800
+    hover:bg-brand-900/70 hover:border-brand-700 transition-all duration-300;
+  }
+
+  .skill-level {
+    @apply text-sm font-medium text-off-white mb-1;
+  }
+
+  .skill-bar {
+    @apply relative w-full h-2 bg-brand-800 rounded-full overflow-hidden;
+  }
+
+  .skill-fill {
+    @apply absolute left-0 top-0 h-full rounded-full transition-all duration-1000 ease-out;
+    width: 0%;
+    animation: fill-bar 1.5s ease-out forwards;
+  }
+
+  /* Skill level colors */
+  .skill-expert {
+    @apply text-green-400;
+  }
+
+  .skill-advanced {
+    @apply text-blue-400;
+  }
+
+  .skill-intermediate {
+    @apply text-yellow-400;
+  }
+
+  .skill-beginner {
+    @apply text-red-400;
+  }
+
+  /* Skill fill colors and widths */
+  .skill-expert-fill {
+    background: linear-gradient(90deg, #10b981, #059669);
+    --fill-width: 95%;
+  }
+
+  .skill-advanced-fill {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    --fill-width: 80%;
+  }
+
+  .skill-intermediate-fill {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+    --fill-width: 65%;
+  }
+
+  .skill-beginner-fill {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    --fill-width: 40%;
+  }
+}
+
+@layer utilities {
+  .max-w-prose { max-width: 65ch; }
+  .shadow-focus { box-shadow: 0 0 0 4px theme('colors.brand.300 / 55%'); }
+
+  /* Custom animations */
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slide-in-left {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slide-in-right {
+    0% { opacity: 0; transform: translateX(30px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scale-in {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes hue-rotate {
+    0% { filter: hue-rotate(0deg); }
+    25% { filter: hue-rotate(90deg); }
+    50% { filter: hue-rotate(180deg); }
+    75% { filter: hue-rotate(270deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes color-cycle {
+    0% { --dynamic-hue: 0; }
+    16.66% { --dynamic-hue: 60; }
+    33.33% { --dynamic-hue: 120; }
+    50% { --dynamic-hue: 180; }
+    66.66% { --dynamic-hue: 240; }
+    83.33% { --dynamic-hue: 300; }
+    100% { --dynamic-hue: 360; }
+  }
+
+  @keyframes fill-bar {
+    0% { width: 0%; }
+    100% { width: var(--fill-width); }
+  }
+
+  .animate-blob { animation: blob 7s infinite; }
+  .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+  .animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
+  .animate-slide-in-left { animation: slide-in-left 0.6s ease-out forwards; }
+  .animate-slide-in-right { animation: slide-in-right 0.6s ease-out forwards; }
+  .animate-scale-in { animation: scale-in 0.5s ease-out forwards; }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-hue-rotate { animation: hue-rotate 10s linear infinite; }
+  .animate-gradient-shift { animation: gradient-shift 8s ease-in-out infinite; }
+  .animate-color-cycle { animation: color-cycle 12s linear infinite; }
+
+  .animation-delay-500 { animation-delay: 0.5s; }
+  .animation-delay-1000 { animation-delay: 1s; }
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+}
+
+/* Add glassmorphism effects */
+@layer base {
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
