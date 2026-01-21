@@ -5,7 +5,7 @@
     "github": "https://github.com/FingerlessCoder/ConcertTicketBot",
     "tags": ["Python", "Automation", "Scraping"],
     "category": "tooling",
-    "image": "concert-ticket-bot.png",
+    "image": "/concert-ticket-bot.png",
     "featured": false,
     "story": "Try to auto buy and compete with scalpers for concert tickets for 周深 that time."
   },
@@ -15,7 +15,7 @@
     "github": "https://github.com/FingerlessCoder/humanizer",
     "tags": ["JavaScript", "Library", "Formatting"],
     "category": "library",
-    "image": "humanizer.png",
+    "image": "/humanizer.png",
     "featured": false,
     "story": "Try to bypass AI detection in assignment, but in fact all still AI token pattern. Damn! Failed"
   },
@@ -25,7 +25,7 @@
     "github": "https://github.com/FingerlessCoder/AsciiArtConverter",
     "tags": ["Python", "Image Processing", "CLI"],
     "category": "tooling",
-    "image": "ascii-art-converter.png",
+    "image": "/ascii-art-converter.png",
     "featured": false,
     "story": "Replace pixel with ACSII, but some result really beautiful. I love you, Taeyeon!"
   },
@@ -34,7 +34,7 @@
     "description": "Full-stack web application with user authentication, Spotify API integration, and social features. Features include album browsing, user favorites, comment systems, admin dashboard, and automated data fetching via Python scripts.",
     "tags": ["PHP", "MySQL", "Spotify API", "Python", "JavaScript"],
     "category": "web",
-    "image": "content_music-album.png",
+    "image": "/content_music-album.png",
     "featured": true,
     "story": "Second assignment and first satisfied project in Web Development course."
   },
@@ -43,7 +43,7 @@
     "description": "Comprehensive tourism website promoting Malaysian destinations. Built with modern web technologies and includes detailed documentation and project reports demonstrating full development lifecycle.",
     "tags": ["PHP", "HTML5", "CSS3", "Tourism", "Responsive Design"],
     "category": "web",
-    "image": "content_visit2malaysia.png",
+    "image": "/content_visit2malaysia.png",
     "featured": true,
     "story": "First assignment using PHP ever, subject Problem Solving. UI design sucks, just self-high in basic function like sort and filter, even powered by ChatGPT."
   },
@@ -53,7 +53,7 @@
     "github": "https://github.com/FingerlessCoder/windrider",
     "tags": ["PHP", "HTML5", "CSS3", "Business", "Marketing"],
     "category": "web",
-    "image": "content_windrider.png",
+    "image": "/content_windrider.png",
     "featured": true,
     "story": "Wanted to help daddy build website, but after developed and check host. Shit, need to pay! And he already retired..."
   },
@@ -63,7 +63,7 @@
     "github": "https://github.com/FingerlessCoder/portfolio-website",
     "tags": ["PHP", "Tailwind CSS", "JavaScript", "Responsive", "Animations"],
     "category": "web",
-    "image": "portfolio.png",
+    "image": "/portfolio.png",
     "featured": false,
     "story": "The website you are currently viewing. Literally"
   },
@@ -72,7 +72,7 @@
     "description": "A fun and interactive mini game inspired by the trending popularity of capybaras and classic food and beverage games like Papa's Pizzeria. With a playful twist of a donut shop, it combines cute graphics animation with engaging gameplay.",
     "tags": ["JavaScript", "HTML5", "CSS3", "Game Development", "Phaser3"],
     "category": "game",
-    "image": "capydon.png",
+    "image": "/capydon.png",
     "featured": false,
     "story": "First game development experience, inspired by Papa's Pizzeria and capybara's cuteness. Used Phaser3 framework to build it. Less satisfied, too basic but meh,ok."
   }
