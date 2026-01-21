@@ -4,80 +4,65 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="About" currentPage="/about">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 inset">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16">
       <img src="/profile.png" alt="Profile"
-        class="w-36 h-36 md:w-40 md:h-40 rounded-full shadow-2xl border-4 border-accent-400 object-cover flex-shrink-0 animate-scale-in" />
+        class="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl border-4 border-teal-400 object-cover flex-shrink-0 animate-scale-in glow-teal" />
       <div
-        class="bg-brand-900/90 dark:bg-brand-800/90 rounded-2xl p-6 md:p-8 shadow-2xl border border-brand-800 backdrop-blur-sm flex-1 w-full">
-        <h1
-          class="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-accent-300 to-accent-500 bg-clip-text text-transparent">
-          About Me</h1>
-        <p class="text-lg md:text-xl text-slate-200 mb-4 leading-relaxed">Full-stack developer passionate about
-          creating meaningful digital experiences that solve real-world problems and delight users.</p>
-        <p class="text-base md:text-lg text-slate-300 leading-relaxed">With expertise in modern web technologies and
-          a keen eye for design, I transform complex ideas into elegant, scalable solutions.</p>
+        class="glass rounded-3xl p-8 md:p-10 shadow-2xl backdrop-blur-xl flex-1 w-full relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-teal-400/5 via-transparent to-indigo-400/5"></div>
+        <div class="relative z-10">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-gradient-teal">
+            About Me</h1>
+          <p class="text-lg md:text-xl text-slate-200 mb-4 leading-relaxed">Multimedia Computing student. Not quite computer science, not quite design.</p>
+          <p class="text-base md:text-lg text-slate-300 leading-relaxed">Somewhere in between. I write code that works, even if it is not "market-standard". I prefer understanding why over memorizing how.</p>
+        </div>
       </div>
     </div>
 
     <section class="space-y-16">
       <div class="card">
-        <h2 class="text-3xl font-bold text-accent-200 mb-4">Background</h2>
-        <p class="text-slate-200 mb-4 leading-relaxed text-lg">As a dedicated developer, I've built a diverse
-          portfolio ranging from comprehensive web applications to interactive gaming experiences. My journey
-          includes creating a full-stack music discovery platform with Spotify API integration, developing tourism
-          websites with responsive design, and crafting engaging web-based games. I believe in learning through
-          building real projects that solve actual problems.</p>
+        <h2 class="text-3xl font-bold text-gradient-coral mb-4">The Technical Side</h2>
+        <p class="text-slate-200 mb-4 leading-relaxed text-lg">My friends describe me as "the technical one" in our group. I am not a hardcore computer science person — no, I cannot recite algorithm proofs from memory. But I understand concepts. I know when to use a database, why API limits exist, and how to debug something I did not write.</p>
+        <p class="text-slate-300 leading-relaxed">Frontend interests me more than I expected. After swapping roles with a teammate in my final year project, I discovered that building interfaces is actually satisfying — when you have a clear direction.</p>
       </div>
 
       <div class="card">
-        <h2 class="text-3xl font-bold text-accent-200 mb-4">What I Do</h2>
+        <h2 class="text-3xl font-bold text-gradient-teal mb-4">The Non-Technical Side</h2>
+        <p class="text-slate-200 mb-4 leading-relaxed text-lg">Friends call me "human dictionary" or "human Wikipedia". I remember random facts. Philosophy, history, politics, economics, law, society — if it is not in the standard curriculum, I have probably read about it.</p>
+        <p class="text-slate-300 leading-relaxed">I like exploring ideas across disciplines. Why do societies organize the way they do? What makes music evoke emotions? How do different cultures approach the same problem?</p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-3xl font-bold text-gradient-coral mb-4">Interests</h2>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="space-y-4">
-            <h3 class="text-xl font-semibold text-accent-300">Frontend Development</h3>
-            <p class="text-slate-300">Creating responsive, accessible user interfaces with modern frameworks like
-              React and Vue.js, combined with CSS frameworks like Tailwind CSS for pixel-perfect designs.</p>
+            <h3 class="text-xl font-semibold text-teal-400">Culture & Media</h3>
+            <p class="text-slate-300">K-pop (Twice, Itzy, IVE, Le Sserafim, aespa, NMIXX, BABYMONSTER), film, and whatever catches my attention on YouTube.</p>
           </div>
           <div class="space-y-4">
-            <h3 class="text-xl font-semibold text-accent-300">Backend Development</h3>
-            <p class="text-slate-300">Building robust server-side applications with Node.js and PHP, designing
-              efficient databases with MySQL, and creating secure RESTful APIs for seamless integration.</p>
+            <h3 class="text-xl font-semibold text-indigo-400">Music</h3>
+            <p class="text-slate-300">I do not "know" music technically. I listen to feel it, and through repetition, I figure it out myself. Ryuichi Sakamoto is a constant presence.</p>
           </div>
           <div class="space-y-4">
-            <h3 class="text-xl font-semibold text-accent-300">API Integration</h3>
-            <p class="text-slate-300">Connecting external services and APIs, including third-party platforms like
-              Spotify, payment gateways, and cloud services to enhance application functionality.</p>
+            <h3 class="text-xl font-semibold text-coral-400">Self-Research</h3>
+            <p class="text-slate-300">Philosophy, history, and various "-isms". I like building my own understanding from multiple sources rather than accepting single narratives.</p>
           </div>
           <div class="space-y-4">
-            <h3 class="text-xl font-semibold text-accent-300">Performance Optimization</h3>
-            <p class="text-slate-300">Analyzing and improving application performance through code optimization,
-              caching strategies, and efficient database queries for fast, responsive user experiences.</p>
+            <h3 class="text-xl font-semibold text-teal-400">Games</h3>
+            <p class="text-slate-300">Games that make you think. Not necessarily complex, but with interesting mechanics or narratives worth discussing.</p>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <h2 class="text-3xl font-bold text-accent-200 mb-4">Key Achievements</h2>
-        <div class="space-y-6">
-          <div class="border-l-4 border-accent-500 pl-6 py-2">
-            <h3 class="text-xl font-semibold text-accent-300 mb-2">Music Recommendation Platform</h3>
-            <p class="text-slate-300">Developed a full-stack web application with Spotify API integration, user
-              authentication, and social features serving music enthusiasts.</p>
-          </div>
-          <div class="border-l-4 border-accent-500 pl-6 py-2">
-            <h3 class="text-xl font-semibold text-accent-300 mb-2">Tourism Portal</h3>
-            <p class="text-slate-300">Created a comprehensive tourism website for Malaysian destinations,
-              demonstrating full development lifecycle from planning to deployment.</p>
-          </div>
-          <div class="border-l-4 border-accent-500 pl-6 py-2">
-            <h3 class="text-xl font-semibold text-accent-300 mb-2">Interactive Games</h3>
-            <p class="text-slate-300">Built engaging web-based games using JavaScript and Phaser3, showcasing
-              creative problem-solving and interactive design skills.</p>
-          </div>
-        </div>
+        <h2 class="text-3xl font-bold text-gradient-teal mb-4">Academic Direction</h2>
+        <p class="text-slate-200 mb-4 leading-relaxed text-lg">I am considering further studies. Not because I want to escape work, but because I genuinely enjoy learning. Understanding systems deeply appeals to me more than rapid industry iteration.</p>
+        <p class="text-slate-300 leading-relaxed">The multimedia computing course has given me a broad foundation. I am still figuring out where I want to specialize, but I know I want to keep asking "why" rather than just "how".</p>
       </div>
 
       <div class="card">
-        <h2 class="text-3xl font-bold text-accent-200 mb-6">Technologies & Tools</h2>
+        <h2 class="text-3xl font-bold text-gradient-coral mb-6">Technologies</h2>
         <div class="flex flex-wrap gap-2">
           <span class="chip">Java</span>
           <span class="chip">PHP</span>
@@ -95,30 +80,25 @@ import Layout from '../layouts/Layout.astro';
           <span class="chip">GitHub</span>
           <span class="chip">Docker</span>
           <span class="chip">REST APIs</span>
-          <span class="chip">Spotify API</span>
           <span class="chip">Phaser3</span>
         </div>
       </div>
 
-      <div class="card">
-        <h2 class="text-3xl font-bold text-accent-200 mb-4">Beyond Code</h2>
-        <p class="text-slate-300 leading-relaxed text-lg">When I'm not coding, you'll find me exploring new
-          technologies, contributing to open-source projects, or sharing knowledge with the developer community. I
-          believe in continuous learning and staying up-to-date with the latest web development trends and best
-          practices. I'm also interested in UI/UX design principles and enjoy creating intuitive user experiences.</p>
-      </div>
-
       <div class="card text-center">
-        <h2 class="text-3xl font-bold text-accent-200 mb-4">Let's Work Together</h2>
-        <p class="text-slate-300 mb-6 text-lg">I'm always excited to collaborate on new projects and ideas.
-          Whether you have a specific project in mind or just want to discuss possibilities, feel free to reach
-          out.</p>
+        <h2 class="text-3xl font-bold text-gradient-teal mb-4">Get In Touch</h2>
+        <p class="text-slate-300 mb-6 text-lg">If you want to discuss projects, ideas, or just have a conversation, feel free to reach out.</p>
         <a href="/contact" class="btn btn-primary inline-flex items-center gap-2">
-          Get In Touch
+          Contact Me
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
+      </div>
+
+      <div class="card text-center mt-8 opacity-60">
+        <p class="text-sm text-slate-400 italic">
+          AI can help you do everything? Why don't you use AI dev yourself?
+        </p>
       </div>
     </section>
   </div>

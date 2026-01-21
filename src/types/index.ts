@@ -7,6 +7,7 @@ export interface Project {
   category: 'web' | 'tooling' | 'library' | 'game';
   image: string;
   featured: boolean;
+  story?: string;
 }
 
 export interface NavigationItem {

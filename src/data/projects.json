@@ -3,111 +3,77 @@
     "name": "Concert Ticket Bot",
     "description": "Automates concert ticket searching and booking. Includes scraping, notifications, and purchase automation.",
     "github": "https://github.com/FingerlessCoder/ConcertTicketBot",
-    "tags": [
-      "Python",
-      "Automation",
-      "Scraping"
-    ],
+    "tags": ["Python", "Automation", "Scraping"],
     "category": "tooling",
     "image": "assets/img/concert-ticket-bot.png",
-    "featured": false
+    "featured": false,
+    "story": "Try to auto buy and compete with scalpers for concert tickets for 周深 that time."
   },
   {
     "name": "Humanizer",
     "description": "Library for converting numbers, dates, and times into human-readable formats.",
     "github": "https://github.com/FingerlessCoder/humanizer",
-    "tags": [
-      "JavaScript",
-      "Library",
-      "Formatting"
-    ],
+    "tags": ["JavaScript", "Library", "Formatting"],
     "category": "library",
     "image": "assets/img/humanizer.png",
-    "featured": false
+    "featured": false,
+    "story": "Try to bypass AI detection in assignment, but in fact all still AI token pattern. Damn! Failed"
   },
   {
     "name": "Ascii Art Converter",
     "description": "Tool to convert images into ASCII art. Supports multiple formats and output styles.",
     "github": "https://github.com/FingerlessCoder/AsciiArtConverter",
-    "tags": [
-      "Python",
-      "Image Processing",
-      "CLI"
-    ],
+    "tags": ["Python", "Image Processing", "CLI"],
     "category": "tooling",
     "image": "assets/img/ascii-art-converter.png",
-    "featured": false
+    "featured": false,
+    "story": "Replace pixel with ACSII, but some result really beautiful. I love you, Taeyeon!"
   },
   {
     "name": "Music Recommendation Site",
     "description": "Full-stack web application with user authentication, Spotify API integration, and social features. Features include album browsing, user favorites, comment systems, admin dashboard, and automated data fetching via Python scripts.",
-    "tags": [
-      "PHP",
-      "MySQL",
-      "Spotify API",
-      "Python",
-      "JavaScript"
-    ],
+    "tags": ["PHP", "MySQL", "Spotify API", "Python", "JavaScript"],
     "category": "web",
     "image": "assets/img/content_music-album.png",
-    "featured": true
+    "featured": true,
+    "story": "Second assignment and first satisfied project in Web Development course."
   },
   {
     "name": "Visit2Malaysia Tourism Portal",
     "description": "Comprehensive tourism website promoting Malaysian destinations. Built with modern web technologies and includes detailed documentation and project reports demonstrating full development lifecycle.",
-    "tags": [
-      "PHP",
-      "HTML5",
-      "CSS3",
-      "Tourism",
-      "Responsive Design"
-    ],
+    "tags": ["PHP", "HTML5", "CSS3", "Tourism", "Responsive Design"],
     "category": "web",
     "image": "assets/img/content_visit2malaysia.png",
-    "featured": true
+    "featured": true,
+    "story": "First assignment using PHP ever, subject Problem Solving. UI design sucks, just self-high in basic function like sort and filter, even powered by ChatGPT."
   },
   {
     "name": "WIND-RIDER ADVERTISING",
     "description": "Professional business advertisement website showcasing services and company information. Features modern design, responsive layout, and effective marketing presentation.",
     "github": "https://github.com/FingerlessCoder/windrider",
-    "tags": [
-      "PHP",
-      "HTML5",
-      "CSS3",
-      "Business",
-      "Marketing"
-    ],
+    "tags": ["PHP", "HTML5", "CSS3", "Business", "Marketing"],
     "category": "web",
     "image": "assets/img/content_windrider.png",
-    "featured": true
+    "featured": true,
+    "story": "Wanted to help daddy build website, but after developed and check host. Shit, need to pay! And he already retired..."
   },
   {
     "name": "Dynamic Portfolio Website",
     "description": "Modern, responsive portfolio featuring dynamic color themes, animated gradients, and glassmorphism effects. Built with Tailwind CSS and vanilla JavaScript for optimal performance and aesthetic appeal.",
     "github": "https://github.com/FingerlessCoder/portfolio-website",
-    "tags": [
-      "PHP",
-      "Tailwind CSS",
-      "JavaScript",
-      "Responsive",
-      "Animations"
-    ],
+    "tags": ["PHP", "Tailwind CSS", "JavaScript", "Responsive", "Animations"],
     "category": "web",
     "image": "assets/img/portfolio.png",
-    "featured": false
+    "featured": false,
+    "story": "The website you are currently viewing. Literally"
   },
   {
-    "name":"Capydon",
-    "description":"A fun and interactive mini game inspired by the trending popularity of capybaras and classic food and beverage games like Papa's Pizzeria. With a playful twist of a donut shop, it combines cute graphics animation with engaging gameplay.",
-    "tags": [
-      "JavaScript",
-      "HTML5",
-      "CSS3",
-      "Game Development",
-      "Phaser3"
-    ],
+    "name": "Capydon",
+    "description": "A fun and interactive mini game inspired by the trending popularity of capybaras and classic food and beverage games like Papa's Pizzeria. With a playful twist of a donut shop, it combines cute graphics animation with engaging gameplay.",
+    "tags": ["JavaScript", "HTML5", "CSS3", "Game Development", "Phaser3"],
     "category": "game",
     "image": "assets/img/capydon.png",
-    "featured": false
+    "featured": false,
+    "story": "First game development experience, inspired by Papa's Pizzeria and capybara's cuteness. Used Phaser3 framework to build it. Less satisfied, too basic but meh,ok."
   }
 ]
