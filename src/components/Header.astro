@@ -1,0 +1,107 @@
+---
+const { currentPage } = Astro.props;
+const navItems = [
+  { title: 'Home', url: '/', },
+  { title: 'About', url: '/about' },
+  { title: 'Projects', url: '/projects' },
+  { title: 'Contact', url: '/contact' },
+];
+---
+<header class="sticky top-0 z-40 backdrop-blur bg-brand-900/90 border-b border-brand-800" role="banner">
+  <nav class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16" aria-label="Main navigation">
+    <div class="text-lg font-semibold tracking-tight">
+      <a href="/"
+        class="bg-gradient-to-r from-off-white to-accent-300 bg-clip-text text-transparent hover:from-accent-300 hover:to-accent-500 transition-all">
+        Fingerless Coder </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul id="menu" class="hidden md:flex gap-1 items-center">
+      {navItems.map((item) => (
+        <li>
+          <a href={item.url}
+            class={currentPage === item.url ? 'nav-link-active nav-link' : 'nav-link'}>
+            {item.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle mobile menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Curtain Menu Backdrop -->
+  <div id="menu-backdrop" class="fixed inset-0 bg-black/[0.95] backdrop-blur-sm z-40 hidden md:hidden"
+    aria-hidden="true"></div>
+
+  <!-- Curtain Menu -->
+  <div id="mobile-menu"
+    class="fixed top-0 left-0 h-0 w-full bg-black/[0.98] overflow-hidden transition-all duration-500 ease-in-out z-50 md:hidden">
+    <div class="flex flex-col h-screen">
+      <!-- Close Button -->
+      <div class="flex justify-end p-4">
+        <button id="close-menu-btn" class="text-white hover:text-accent-300 transition-colors"
+          aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menu Items -->
+      <div class="flex flex-col items-center justify-center space-y-6 px-6 py-8 flex-1">
+        {navItems.map((item) => (
+          <a href={item.url}
+            class="block py-4 px-8 text-xl text-white hover:text-accent-300 hover:bg-gray-800/50 rounded-lg transition-all duration-200 text-center w-full max-w-xs"
+            onclick="closeMenu()">
+            {item.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  function closeMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const backdrop = document.getElementById('menu-backdrop');
+    if (menu && backdrop) {
+      menu.style.height = '0';
+      backdrop.classList.add('hidden');
+    }
+  }
+
+  const menuBtn = document.getElementById('menu-btn');
+  const closeMenuBtn = document.getElementById('close-menu-btn');
+  const menuBackdrop = document.getElementById('menu-backdrop');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      if (mobileMenu && menuBackdrop) {
+        mobileMenu.style.height = '100%';
+        menuBackdrop.classList.remove('hidden');
+      }
+    });
+  }
+
+  if (closeMenuBtn) {
+    closeMenuBtn.addEventListener('click', closeMenu);
+  }
+
+  if (menuBackdrop) {
+    menuBackdrop.addEventListener('click', closeMenu);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
+</script>

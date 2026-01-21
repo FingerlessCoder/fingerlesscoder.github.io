@@ -1,11 +1,9 @@
-# Example workflow (not required for pure static Pages without build)
-# Uncomment and adapt if you later add a build step (e.g., bundling, minification).
-
-name: Build and Deploy (Example)
+name: Build and Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,19 +20,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+
       - name: Install dependencies
         run: npm ci
-      - name: Build Tailwind
+
+      - name: Build Astro site
         run: npm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './dist'
+
   deploy:
     environment:
       name: github-pages

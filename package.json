@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "tailwindcss -i ./src/styles.css -o ./assets/css/tailwind.css --watch",
-    "build": "tailwindcss -i ./src/styles.css -o ./assets/css/tailwind.css --minify"
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.16.12",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13"

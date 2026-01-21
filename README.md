@@ -1,124 +1,166 @@
 # Personal Portfolio Website
 
-A fast, accessible, responsive portfolio website you can deploy using **GitHub Pages**.
+A fast, accessible, responsive portfolio website built with **Astro** and **Tailwind CSS**, deployed to **GitHub Pages**.
 
 ## Features
-- Semantic, accessible HTML structure (skip link, proper landmarks, aria attributes)
-- Responsive design with CSS Grid & flexbox
-- Light/Dark theme toggle with localStorage persistence
-- Projects data loaded from `assets/data/projects.json` (easy to update & extend)
-- Simple filter buttons on Projects page
-- Progressive enhancement friendly (content visible without JS)
-- Ready for GitHub Pages deployment (static assets only)
-- SEO meta tags + JSON-LD structured data on `index.html`
 
-## Structure
+- 🚀 **Built with Astro** - Modern static site generator with zero JS by default
+- 🎨 **Tailwind CSS** - Utility-first styling with custom design tokens
+- 📱 **Fully Responsive** - Mobile-first design with desktop support
+- 🌙 **Theme Toggle** - Light/Dark mode with localStorage persistence
+- 📦 **TypeScript** - Full type safety for data and components
+- ♿ **Accessible** - Semantic HTML, ARIA attributes, skip links
+- 🔍 **SEO Ready** - Meta tags, proper heading hierarchy
+- ⚡ **Fast** - Static HTML output, minimal JavaScript
+
+## Tech Stack
+
+- **Framework:** Astro 5.0
+- **Styling:** Tailwind CSS 3.4
+- **Language:** TypeScript
+- **Deployment:** GitHub Pages
+
+## Project Structure
+
 ```
-assets/
-  css/styles.css
-  js/main.js
-  js/projects.js
-  data/projects.json
-## Features
-- Semantic, accessible structure (skip link, landmarks, keyboard friendly)
-- Gradient Flat + Subtle Depth design using Tailwind CSS utilities
-- Light/Dark theme toggle with localStorage (custom JS)
-- Projects rendered from `assets/data/projects.json` (JSON-driven)
-- Category filtering (client-side)
-- Minimal custom CSS (largely utility-first)
-- GitHub Pages CI workflow builds Tailwind automatically
-- Optional PHP includes (`header.php`, `footer.php`) are available for local XAMPP development, but the primary site is static HTML ready for GitHub Pages
-- SEO meta + structured data (see `index.html` JSON-LD)
-## Getting Started Locally
-## Structure
-   ```bash
-index.html (static HTML version)
-index.php (PHP version using includes)
-   git clone https://github.com/<your-username>/<your-repo>.git
-   cd <your-repo>
-## Getting Started Locally
-Clone and install dependencies:
+fingerlesscoder.github.io/
+├── src/
+│   ├── components/
+│   │   ├── Header.astro      # Navigation header
+│   │   └── Footer.astro      # Site footer
+│   ├── layouts/
+│   │   └── Layout.astro      # Main layout component
+│   ├── pages/
+│   │   ├── index.astro       # Homepage
+│   │   ├── about.astro       # About page
+│   │   ├── projects.astro    # Projects portfolio
+│   │   └── contact.astro     # Contact form
+│   ├── data/
+│   │   └── projects.json     # Projects data (easy to update)
+│   ├── styles/
+│   │   └── global.css        # Custom CSS with animations
+│   └── types/
+│       └── index.ts          # TypeScript definitions
+├── public/                   # Static assets (images)
+├── astro.config.mjs          # Astro configuration
+├── tailwind.config.mjs       # Tailwind configuration
+└── package.json
+```
 
-```powershell
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or pnpm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/FingerlessCoder/fingerlesscoder.github.io.git
+cd fingerlesscoder.github.io
+
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
-Open `index.html` (or use a local server). The dev script watches `src/styles.css` and outputs `assets/css/tailwind.css`.
+Visit `http://localhost:4321` to see the site.
 
-### Using PHP with XAMPP
-Place the project inside your XAMPP `htdocs` (already done if you are here). Then visit:
+### Build Commands
+
+```bash
+# Development with hot reload
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
-http://localhost/portfolio%20website/index.php
+
+## Managing Projects
+
+Add or edit projects in `src/data/projects.json`:
+
+```json
+{
+  "name": "Project Name",
+  "description": "Project description",
+  "github": "https://github.com/username/repo",
+  "tags": ["React", "TypeScript"],
+  "category": "web",
+  "image": "/project-image.png",
+  "featured": true
+}
 ```
-Edit `header.php` / `footer.php` once; changes propagate site‑wide.
 
-If you only need static hosting (GitHub Pages), you can ignore the `.php` files.
-   git add .
-## Deploy to GitHub Pages
-   git push origin main
-### GitHub Actions Workflow
-Already configured in `.github/workflows/pages-example.yml` to:
-1. Install Node dependencies
-2. Run Tailwind build (`npm run build`)
-3. Upload artifacts for Pages deployment
+### Categories
 
-If you rename the workflow file, keep the pages permissions and steps intact.
-4. For project site:
-   - Select Branch: `main` (root) and save
-## Performance Tips
-- Optimize images (prefer `.webp` / modern formats)
-- Consider self-hosting the Inter font or using system UI stack
-- Use `loading="lazy"` for below-the-fold images
-- Purge is handled automatically by Tailwind content config
+- `web` - Web applications
+- `tooling` - Developer tools
+- `library` - Open source libraries
+- `game` - Games
 
-## Tailwind Design Tokens
-Defined in `tailwind.config.js`:
-- `colors.brand.*` – primary hue scale
-- `backgroundImage.gradient-flat` – base soft gradient
-- `boxShadow.subtle` / `boxShadow.depth` – depth elevation steps
+## Deployment
 
-Adjust gradients or add new semantic aliases under `theme.extend`.
+### GitHub Pages (Automatic)
 
-## Future Enhancements (Ideas)
-- Add a service worker for offline caching
-- Add RSS feed for blog
-- Fetch starred or pinned repos dynamically from GitHub API
-- Add motion-reduced ambient gradient animation
-- Implement search across blog posts (later)
-- Consider adding a custom domain (Settings → Pages → Custom domain)
-\n### Tailwind Build Commands
-Dev (watch): `npm run dev`  |  Production: `npm run build`
+Push to the `main` branch and GitHub Actions will automatically build and deploy the site.
 
-Ensure `assets/css/tailwind.css` is committed for environments without build pipelines (if skipping GitHub Actions).
+1. Go to Repository Settings → Pages
+2. Source: "Deploy from a branch"
+3. Branch: `gh-pages` / `(root)`
+4. Save
 
-## Adding Blog Posts Later
-You can:
-- Keep it manual: Create `blog/post-slug.html` pages and link them.
-- Use a static site generator (11ty, Astro, Jekyll) later without rewriting structure.
+### Manual Deployment
 
-## Accessibility Notes
-- Color contrast aims for WCAG AA.
-- Focus states preserved and visible.
-- Skip link improves keyboard navigation.
-- Content readable with JavaScript disabled.
+```bash
+npm run build
+# The output is in the dist/ directory
+```
 
-## Performance Tips
-- Optimize images (use `.webp` where possible).
-- Add `<link rel="preconnect" ...>` for any external fonts/APIs (currently none used).
-- Inline critical CSS if you expand styles significantly.
+## Customization
+
+### Colors
+
+Edit `tailwind.config.mjs` to customize the color palette:
+
+```javascript
+colors: {
+  brand: { ... },   // Grayscale scale
+  accent: { ... },  // Purple/violet accent
+  red: { ... },     // Semantic red
+  yellow: { ... },  // Semantic yellow
+}
+```
+
+### Animations
+
+Custom animations are defined in `src/styles/global.css`:
+
+- `animate-blob` - Floating background shapes
+- `animate-float` - Particle effects
+- `animate-fade-in-up` - Entrance animations
+- `animate-gradient-shift` - Background gradient movement
+
+## Accessibility
+
+- Skip to content link
+- Proper ARIA labels
+- Keyboard navigation support
+- Focus states preserved
+- Color contrast WCAG AA compliant
+- Reduced motion support
 
 ## License
-This project is released under the MIT License (see `LICENSE`).
 
-## Future Enhancements (Ideas)
-- Add a service worker for offline caching
-- Add RSS feed for blog
-- Add micro-interactions (reduced motion friendly)
-- Add Google Analytics or Plausible (privacy friendly) tracking
-- Replace JSON data with GitHub API fetch of pinned repos
+MIT License - see `LICENSE` file.
 
 ---
-Enjoy building your site! ✨
+
+Built with ❤️ using Astro & Tailwind CSS
