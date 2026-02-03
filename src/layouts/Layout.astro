@@ -1,153 +1,196 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
   currentPage?: string;
 }
-const { title, description, currentPage = '' } = Astro.props;
-const metaDescription = description || 'Portfolio of Fingerless Coder - Multimedia Computing student exploring the space between code and design';
+const { title, description, currentPage = "" } = Astro.props;
+const metaDescription =
+  description ||
+  "Portfolio of Fingerless Coder - Multimedia Computing student exploring the space between code and design";
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Fingerless Coder</title>
+    <meta name="description" content={metaDescription} />
+    <meta
+      name="keywords"
+      content="multimedia computing, web developer, frontend, accessibility"
+    />
+    <meta name="author" content="FingerlessCoder" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJL1BQCHYY"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title} | Fingerless Coder</title>
-  <meta name="description" content={metaDescription} />
-  <meta name="keywords" content="multimedia computing, web developer, frontend, accessibility" />
-  <meta name="author" content="FingerlessCoder" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
+      gtag("config", "G-YJL1BQCHYY");
+    </script>
+  </head>
 
-<body class="min-h-dvh flex flex-col selection:bg-accent-200/60">
-  <a class="absolute left-[-999px] focus:left-4 focus:top-4 focus:bg-accent-600 focus:text-white focus:px-4 focus:py-2 rounded-md"
-    href="#main">Skip to content</a>
+  <body class="min-h-dvh flex flex-col selection:bg-accent-200/60">
+    <a
+      class="absolute left-[-999px] focus:left-4 focus:top-4 focus:bg-accent-600 focus:text-white focus:px-4 focus:py-2 rounded-md"
+      href="#main">Skip to content</a
+    >
 
-  <Header currentPage={currentPage} />
+    <Header currentPage={currentPage} />
 
-  <main id="main" class="flex-1">
-    <slot />
-  </main>
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
 
-  <Footer />
+    <Footer />
 
-  <!-- Easter egg modal -->
-  <div id="easter-egg-modal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center">
-    <div class="text-center p-8 max-w-md">
-      <p id="easter-egg-text" class="text-xl text-accent-300 font-mono mb-4"></p>
-      <button id="close-easter-egg" class="text-brand-300 hover:text-white transition-colors text-sm">
-        Press any key to close
-      </button>
+    <!-- Easter egg modal -->
+    <div
+      id="easter-egg-modal"
+      class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center"
+    >
+      <div class="text-center p-8 max-w-md">
+        <p id="easter-egg-text" class="text-xl text-accent-300 font-mono mb-4">
+        </p>
+        <button
+          id="close-easter-egg"
+          class="text-brand-300 hover:text-white transition-colors text-sm"
+        >
+          Press any key to close
+        </button>
+      </div>
     </div>
-  </div>
 
-  <script>
-    // Theme toggle logic
-    const themeKey = 'site-theme-v1';
-    const html = document.documentElement;
+    <script>
+      // Theme toggle logic
+      const themeKey = "site-theme-v1";
+      const html = document.documentElement;
 
-    function setTheme(theme: 'light' | 'dark') {
-      html.setAttribute('data-theme', theme);
-      localStorage.setItem(themeKey, theme);
-    }
-
-    function getPreferredTheme(): 'light' | 'dark' {
-      const stored = localStorage.getItem(themeKey);
-      if (stored === 'light' || stored === 'dark') {
-        return stored;
+      function setTheme(theme: "light" | "dark") {
+        html.setAttribute("data-theme", theme);
+        localStorage.setItem(themeKey, theme);
       }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
 
-    function toggleTheme() {
-      const current = html.getAttribute('data-theme') as 'light' | 'dark';
-      const newTheme = current === 'light' ? 'dark' : 'light';
-      setTheme(newTheme);
-      updateThemeToggleIcon(newTheme);
-    }
+      function getPreferredTheme(): "light" | "dark" {
+        const stored = localStorage.getItem(themeKey);
+        if (stored === "light" || stored === "dark") {
+          return stored;
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      }
 
-    function updateThemeToggleIcon(theme: 'light' | 'dark') {
-      const toggleBtn = document.getElementById('theme-toggle-btn');
-      if (toggleBtn) {
-        if (theme === 'light') {
-          toggleBtn.innerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-        } else {
-          toggleBtn.innerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      function toggleTheme() {
+        const current = html.getAttribute("data-theme") as "light" | "dark";
+        const newTheme = current === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        updateThemeToggleIcon(newTheme);
+      }
+
+      function updateThemeToggleIcon(theme: "light" | "dark") {
+        const toggleBtn = document.getElementById("theme-toggle-btn");
+        if (toggleBtn) {
+          if (theme === "light") {
+            toggleBtn.innerHTML =
+              '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+          } else {
+            toggleBtn.innerHTML =
+              '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+          }
         }
       }
-    }
 
-    // Easter egg: Merry Christmas Mr. Lawrence
-    const easterEggModal = document.getElementById('easter-egg-modal');
-    const easterEggText = document.getElementById('easter-egg-text');
-    const closeEasterEggBtn = document.getElementById('close-easter-egg');
-    let inputBuffer = '';
+      // Easter egg: Merry Christmas Mr. Lawrence
+      const easterEggModal = document.getElementById("easter-egg-modal");
+      const easterEggText = document.getElementById("easter-egg-text");
+      const closeEasterEggBtn = document.getElementById("close-easter-egg");
+      let inputBuffer = "";
 
-    const christmasMessages = [
-      'Merry Christmas, Mr. Lawrence',
-      'And lots of snow on the stage',
-      'Ryuichi Sakamoto, 1983',
-    ];
+      const christmasMessages = [
+        "Merry Christmas, Mr. Lawrence",
+        "And lots of snow on the stage",
+        "Ryuichi Sakamoto, 1983",
+      ];
 
-    function showChristmasEasterEgg() {
-      if (easterEggModal && easterEggText) {
-        const randomMessage = christmasMessages[Math.floor(Math.random() * christmasMessages.length)];
-        easterEggText.textContent = randomMessage;
-        easterEggModal.classList.remove('hidden');
-        easterEggModal.classList.add('flex');
-      }
-    }
-
-    function hideEasterEgg() {
-      if (easterEggModal) {
-        easterEggModal.classList.add('hidden');
-        easterEggModal.classList.remove('flex');
-      }
-    }
-
-    // Initialize theme
-    document.addEventListener('DOMContentLoaded', () => {
-      const theme = getPreferredTheme();
-      setTheme(theme);
-      updateThemeToggleIcon(theme);
-
-      const themeToggleBtn = document.getElementById('theme-toggle-btn');
-      if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', toggleTheme);
-      }
-
-      if (closeEasterEggBtn) {
-        closeEasterEggBtn.addEventListener('click', hideEasterEgg);
-      }
-
-      if (easterEggModal) {
-        easterEggModal.addEventListener('click', hideEasterEgg);
-      }
-    });
-
-    // Easter egg keyboard input
-    document.addEventListener('keydown', (e) => {
-      const key = e.key.toLowerCase();
-      if (key.length === 1 && /[a-z]/.test(key)) {
-        inputBuffer += key;
-        inputBuffer = inputBuffer.slice(-20); // Keep last 20 chars
-
-        if (inputBuffer.includes('merry') || inputBuffer.includes('christmas') || inputBuffer.includes('sakamoto')) {
-          showChristmasEasterEgg();
-          inputBuffer = '';
+      function showChristmasEasterEgg() {
+        if (easterEggModal && easterEggText) {
+          const randomMessage =
+            christmasMessages[
+              Math.floor(Math.random() * christmasMessages.length)
+            ];
+          easterEggText.textContent = randomMessage;
+          easterEggModal.classList.remove("hidden");
+          easterEggModal.classList.add("flex");
         }
-      } else if (easterEggModal && !easterEggModal.classList.contains('hidden')) {
-        hideEasterEgg();
       }
-    });
-  </script>
-</body>
+
+      function hideEasterEgg() {
+        if (easterEggModal) {
+          easterEggModal.classList.add("hidden");
+          easterEggModal.classList.remove("flex");
+        }
+      }
+
+      // Initialize theme
+      document.addEventListener("DOMContentLoaded", () => {
+        const theme = getPreferredTheme();
+        setTheme(theme);
+        updateThemeToggleIcon(theme);
+
+        const themeToggleBtn = document.getElementById("theme-toggle-btn");
+        if (themeToggleBtn) {
+          themeToggleBtn.addEventListener("click", toggleTheme);
+        }
+
+        if (closeEasterEggBtn) {
+          closeEasterEggBtn.addEventListener("click", hideEasterEgg);
+        }
+
+        if (easterEggModal) {
+          easterEggModal.addEventListener("click", hideEasterEgg);
+        }
+      });
+
+      // Easter egg keyboard input
+      document.addEventListener("keydown", (e) => {
+        const key = e.key.toLowerCase();
+        if (key.length === 1 && /[a-z]/.test(key)) {
+          inputBuffer += key;
+          inputBuffer = inputBuffer.slice(-20); // Keep last 20 chars
+
+          if (
+            inputBuffer.includes("merry") ||
+            inputBuffer.includes("christmas") ||
+            inputBuffer.includes("sakamoto")
+          ) {
+            showChristmasEasterEgg();
+            inputBuffer = "";
+          }
+        } else if (
+          easterEggModal &&
+          !easterEggModal.classList.contains("hidden")
+        ) {
+          hideEasterEgg();
+        }
+      });
+    </script>
+  </body>
 </html>
