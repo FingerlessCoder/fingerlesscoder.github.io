@@ -12,14 +12,6 @@ const { title, description, currentPage = "" } = Astro.props;
 const metaDescription =
   description ||
   "Portfolio of Fingerless Coder - Multimedia Computing student exploring the space between code and design";
-const gaSnippet = `<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YJL1BQCHYY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-YJL1BQCHYY');
-</script>`;
 ---
 
 <!doctype html>
@@ -41,7 +33,9 @@ const gaSnippet = `<!-- Google tag (gtag.js) -->
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    {@html gaSnippet}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJL1BQCHYY"></script>
+    <script src="/ga-init.js" defer></script>
   </head>
 
   <body class="min-h-dvh flex flex-col selection:bg-accent-200/60">
