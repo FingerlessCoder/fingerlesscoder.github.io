@@ -52,17 +52,15 @@ const siteUrl = "https://fingerlesscoder.github.io";
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJL1BQCHYY"></script>
     <script src="/ga-init.js" defer></script>
     <!-- JSON-LD Structured Data: Person / Website -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Fingerless Coder",
-        "url": siteUrl,
-        "sameAs": [
-          "https://linkedin.com/in/wilson-tay-225019301"
-        ]
-      })}
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Fingerless Coder",
+      "url": siteUrl,
+      "sameAs": [
+        "https://linkedin.com/in/wilson-tay-225019301"
+      ]
+    })} />
   </head>
 
   <body class="min-h-dvh flex flex-col selection:bg-accent-200/60">
