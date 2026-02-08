@@ -7,11 +7,14 @@ interface Props {
   title: string;
   description?: string;
   currentPage?: string;
+  canonical?: string;
+  image?: string;
 }
-const { title, description, currentPage = "" } = Astro.props;
+const { title, description, currentPage = "", canonical, image } = Astro.props;
 const metaDescription =
   description ||
   "Portfolio of Fingerless Coder - Multimedia Computing student exploring the space between code and design";
+const siteUrl = "https://fingerlesscoder.github.io";
 ---
 
 <!doctype html>
@@ -19,12 +22,24 @@ const metaDescription =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} | Fingerless Coder</title>
+    <title>{title}</title>
     <meta name="description" content={metaDescription} />
     <meta
       name="keywords"
       content="multimedia computing, web developer, frontend, accessibility"
     />
+    {canonical ? <link rel="canonical" href={canonical} /> : <link rel="canonical" href={`${siteUrl}${currentPage || '/'}`} />}
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonical ?? `${siteUrl}${currentPage || '/'}`} />
+    {image ? <meta property="og:image" content={image} /> : null}
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    {image ? <meta name="twitter:image" content={image} /> : null}
     <meta name="author" content="FingerlessCoder" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,17 +49,18 @@ const metaDescription =
       rel="stylesheet"
     />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJL1BQCHYY"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-YJL1BQCHYY");
-    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJL1BQCHYY"></script>
+    <script src="/ga-init.js" defer></script>
+    <!-- JSON-LD Structured Data: Person / Website -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Fingerless Coder",
+      "url": siteUrl,
+      "sameAs": [
+        "https://linkedin.com/in/wilson-tay-225019301"
+      ]
+    })} />
   </head>
 
   <body class="min-h-dvh flex flex-col selection:bg-accent-200/60">

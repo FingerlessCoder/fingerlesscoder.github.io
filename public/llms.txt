@@ -1,0 +1,4 @@
+# llms.txt - placeholder to declare LLM indexing preferences
+# If you have specific LLM policies, list them here. For now, allow indexing.
+User-agent: *
+Allow: /
