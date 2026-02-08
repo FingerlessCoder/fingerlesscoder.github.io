@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fingerlesscoder.github.io/sitemap.xml
