@@ -5,7 +5,11 @@ import projects from '../data/projects.json';
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 ---
 
-<Layout title="Home" currentPage="/">
+const pageTitle = "Home — Fingerless Coder — Portfolio of Code & Design";
+const pageDescription =
+  "Full-stack developer and multimedia student building interactive web applications, creative tools and user-centered designs. Explore projects in music tech, tourism portals, and modern web experiences.";
+
+<Layout title={pageTitle} description={pageDescription} canonical="https://fingerlesscoder.github.io/" currentPage="/">
   <section class="relative overflow-hidden min-h-[90vh] flex items-center">
     <!-- Retro-futuristic animated background -->
     <div class="absolute inset-0" style="background: var(--gradient-hero);"></div>
