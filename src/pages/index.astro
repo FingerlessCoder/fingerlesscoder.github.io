@@ -5,7 +5,7 @@ import projects from '../data/projects.json';
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 const pageTitle = "Home — Fingerless Coder — Portfolio of Code & Design";
 const pageDescription =
-  "Full-stack developer and multimedia student building interactive web applications, creative tools and user-centered designs. Explore projects in music tech, tourism portals, and modern web experiences.";
+  "Full-stack developer and multimedia student building interactive web applications and user-centered designs. Explore my creative tech and web projects.";
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical="https://fingerlesscoder.github.io/" currentPage="/">
@@ -40,10 +40,18 @@ const pageDescription =
         <span class="inline-block w-0.5 h-8 sm:h-10 md:h-12 lg:h-14 animate-pulse ml-1"
           style="background: #00d4aa; box-shadow: 0 0 20px #00d4aa;"></span>
       </h1>
+      <p class="max-w-prose text-base sm:text-lg text-brand-200 leading-relaxed animate-fade-in-up animation-delay-300">
+        Wilson Tay, also known as Fingerless Coder.
+      </p>
       <p class="max-w-prose text-lg sm:text-xl md:text-2xl text-slate-300 leading-relaxed animate-fade-in-up animation-delay-500">
         Full-stack developer passionate about creating meaningful web applications. From interactive music platforms
         to comprehensive tourism portals, I transform ideas into scalable, user-centric solutions using modern
         technologies and thoughtful design.
+      </p>
+      <p class="max-w-prose text-lg sm:text-xl md:text-2xl text-slate-300 leading-relaxed animate-fade-in-up animation-delay-700">
+        Beyond code, I enjoy exploring the intersection of art and technology, crafting interfaces that are not only
+        functional but also delightful. This portfolio highlights select projects that demonstrate my commitment to
+        accessibility, performance and aesthetic polish.
       </p>
       <div class="flex flex-wrap gap-4 pt-6 animate-fade-in-up animation-delay-1000">
         <a class="btn btn-primary group" href="/projects">
@@ -76,10 +84,10 @@ const pageDescription =
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {featuredProjects.map((project) => (
           <article class="card group" data-category={project.category}>
-            <div class="relative mb-4 overflow-hidden rounded-lg bg-gradient-to-br from-brand-800 to-brand-900 p-1">
+            <div class="relative mb-4 overflow-hidden rounded-lg bg-gradient-to-br from-brand-800 to-brand-900 p-1 aspect-video">
               <img src={project.image} alt={project.name}
-                class="w-full h-48 object-cover rounded-md transition-transform duration-300 group-hover:scale-105 lazy"
-                loading="lazy" />
+                class="absolute inset-0 w-full h-full object-cover"
+                decoding="async" />
             </div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <h3 class="flex-1 flex items-center flex-wrap">

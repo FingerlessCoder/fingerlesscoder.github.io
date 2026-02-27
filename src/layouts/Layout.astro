@@ -15,6 +15,8 @@ const metaDescription =
   description ||
   "Portfolio of Fingerless Coder - Multimedia Computing student exploring the space between code and design";
 const siteUrl = "https://fingerlesscoder.github.io";
+const pageUrl = canonical ?? `${siteUrl}${currentPage || "/"}`;
+const socialImage = image ?? `${siteUrl}/wallpaper.png`;
 ---
 
 <!doctype html>
@@ -31,17 +33,21 @@ const siteUrl = "https://fingerlesscoder.github.io";
     {canonical ? <link rel="canonical" href={canonical} /> : <link rel="canonical" href={`${siteUrl}${currentPage || '/'}`} />}
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fingerless Coder" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={metaDescription} />
-    <meta property="og:url" content={canonical ?? `${siteUrl}${currentPage || '/'}`} />
-    {image ? <meta property="og:image" content={image} /> : null}
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={socialImage} />
     <!-- Twitter Card -->
-    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@WTay04" />
+    <meta name="twitter:creator" content="@WTay04" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={metaDescription} />
-    {image ? <meta name="twitter:image" content={image} /> : null}
-    <meta name="author" content="FingerlessCoder" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="author" content="Wilson Tay (Fingerless Coder)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -55,10 +61,15 @@ const siteUrl = "https://fingerlesscoder.github.io";
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Fingerless Coder",
+      "name": "Wilson Tay",
+      "alternateName": "Fingerless Coder",
       "url": siteUrl,
       "sameAs": [
-        "https://linkedin.com/in/wilson-tay-225019301"
+        "https://github.com/FingerlessCoder",
+        "https://www.linkedin.com/in/wilson-tay-225019301/",
+        "https://x.com/WTay04",
+        "https://facebook.com/wilson.tay.912247",
+        "https://instagram.com/wilson_tay04",
       ]
     })} />
   </head>
@@ -142,7 +153,7 @@ const siteUrl = "https://fingerlesscoder.github.io";
 
       const christmasMessages = [
         "Merry Christmas, Mr. Lawrence",
-        "And lots of snow on the stage",
+        "戦場のメリークリスマス",
         "Ryuichi Sakamoto, 1983",
       ];
 
