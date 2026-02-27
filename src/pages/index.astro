@@ -87,7 +87,10 @@ const pageDescription =
             <div class="relative mb-4 overflow-hidden rounded-lg bg-gradient-to-br from-brand-800 to-brand-900 p-1 aspect-video">
               <img src={project.image} alt={project.name}
                 class="absolute inset-0 w-full h-full object-cover"
-                decoding="async" />
+                decoding="async"
+                loading="lazy"
+                width="1280"
+                height="720" />
             </div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <h3 class="flex-1 flex items-center flex-wrap">
