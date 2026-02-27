@@ -15,7 +15,8 @@ const metaDescription =
   description ||
   "Portfolio of Fingerless Coder - Multimedia Computing student exploring the space between code and design";
 const siteUrl = "https://fingerlesscoder.github.io";
-const pageUrl = canonical ?? `${siteUrl}${currentPage || "/"}`;
+const normalizedCurrentPage = currentPage.endsWith("/") || currentPage === "" ? currentPage : `${currentPage}/`;
+const pageUrl = canonical ?? `${siteUrl}${normalizedCurrentPage || "/"}`;
 const socialImage = image ?? `${siteUrl}/wallpaper.png`;
 ---
 
@@ -30,7 +31,7 @@ const socialImage = image ?? `${siteUrl}/wallpaper.png`;
       name="keywords"
       content="multimedia computing, web developer, frontend, accessibility"
     />
-    {canonical ? <link rel="canonical" href={canonical} /> : <link rel="canonical" href={`${siteUrl}${currentPage || '/'}`} />}
+    {canonical ? <link rel="canonical" href={canonical} /> : <link rel="canonical" href={`${siteUrl}${normalizedCurrentPage || '/'}`} />}
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Fingerless Coder" />
@@ -45,7 +46,7 @@ const socialImage = image ?? `${siteUrl}/wallpaper.png`;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={socialImage} />
-    
+
     <meta name="author" content="Wilson Tay (Fingerless Coder)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <link rel="alternate icon" type="image/png" href="/profile.png?v=1" sizes="32x32" />
@@ -57,9 +58,20 @@ const socialImage = image ?? `${siteUrl}/wallpaper.png`;
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJL1BQCHYY"></script>
-    <script src="/ga-init.js" defer></script>
+    <!-- Google tag (gtag.js) loaded after page becomes interactive -->
+    <script>
+      window.addEventListener("load", () => {
+        const gaScript = document.createElement("script");
+        gaScript.async = true;
+        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-YJL1BQCHYY";
+        document.head.appendChild(gaScript);
+
+        const gaInitScript = document.createElement("script");
+        gaInitScript.src = "/ga-init.js";
+        gaInitScript.defer = true;
+        document.head.appendChild(gaInitScript);
+      });
+    </script>
     <!-- JSON-LD Structured Data: Person / Website -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",

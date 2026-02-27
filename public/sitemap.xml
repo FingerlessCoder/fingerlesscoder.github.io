@@ -7,19 +7,19 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://fingerlesscoder.github.io/about</loc>
+    <loc>https://fingerlesscoder.github.io/about/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://fingerlesscoder.github.io/projects</loc>
+    <loc>https://fingerlesscoder.github.io/projects/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://fingerlesscoder.github.io/contact</loc>
+    <loc>https://fingerlesscoder.github.io/contact/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.64</priority>
