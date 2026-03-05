@@ -18,6 +18,8 @@ const siteUrl = "https://fingerlesscoder.github.io";
 const normalizedCurrentPage = currentPage.endsWith("/") || currentPage === "" ? currentPage : `${currentPage}/`;
 const pageUrl = canonical ?? `${siteUrl}${normalizedCurrentPage || "/"}`;
 const socialImage = image ?? `${siteUrl}/wallpaper.jpg`;
+const socialLogo = `${siteUrl}/profile.png`;
+const hasCustomImage = Boolean(image);
 ---
 
 <!doctype html>
@@ -33,12 +35,19 @@ const socialImage = image ?? `${siteUrl}/wallpaper.jpg`;
     />
     {canonical ? <link rel="canonical" href={canonical} /> : <link rel="canonical" href={`${siteUrl}${normalizedCurrentPage || '/'}`} />}
     <!-- Open Graph -->
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Fingerless Coder" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:secure_url" content={socialImage} />
+    <meta property="og:image:alt" content="Fingerless Coder portfolio preview" />
+    {!hasCustomImage && <meta property="og:image:type" content="image/jpeg" />}
+    {!hasCustomImage && <meta property="og:image:width" content="1920" />}
+    {!hasCustomImage && <meta property="og:image:height" content="1080" />}
+    <meta property="og:logo" content={socialLogo} />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@WTay04" />
@@ -46,6 +55,7 @@ const socialImage = image ?? `${siteUrl}/wallpaper.jpg`;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content="Fingerless Coder portfolio preview" />
 
     <meta name="author" content="Wilson Tay (Fingerless Coder)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
